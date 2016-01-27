@@ -1,0 +1,133 @@
+{# This simple template derives from ``base.html``. See ``base.html`` for
+   more information about template inheritance. #}
+{%- extends "base.html" %}
+
+{# Loads some of the macros included with Flask-Bootstrap. We are using the
+   utils module here to automatically render Flask's flashed messages in a
+   bootstrap friendly manner #}
+{% import "bootstrap/utils.html" as utils %}
+
+
+{# Inside the ``content`` is where you should place most of your own stuff.
+   This will keep scripts at the page end and a navbar you add on later
+   intact. #}
+{% block content %}
+    <div class="container">
+        {%- with messages = get_flashed_messages(with_categories=True) %}
+            {%- if messages %}
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ utils.flashed_messages(messages) }}
+                    </div>
+                </div>
+            {%- endif %}
+        {%- endwith %}
+        <div class="row">
+            <div class="col-md-4" >
+                <div style="padding:8px;background-color: #FEFEFE">
+                    <h3><i class="fa fa-cloud"></i> Hostbd24</h3>
+
+                    <hr>
+                    <div style="margin-top: 8px">
+                        <div style="padding: 4px;">
+                            <h4>Label</h4>
+                        </div>
+                        <div style="padding: 8px;color: #666">
+                            <span>ramnode 256m openvz vps</span>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div>
+                        <div style="padding: 4px;">
+                            <h4>Referral Link</h4>
+                        </div>
+                        <div style="padding: 8px;color: #666">
+                            <span>https://clients.hostbd24.com/aff.php?aff=61&pid=25</span>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div style="margin-top: 8px">
+                        <div style="padding: 4px;">
+                            <h4>Clicks</h4>
+                        </div>
+                        <div style="padding: 8px;color: #666">
+                            <div class="row">
+                                <div class='col-md-6'>
+                                    <span><small>Total</small> 2048 </span>
+                                </div>
+                                <div class='col-md-6'>
+                                    <span><small>Month</small> 1024 </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-4" >
+                <div style="padding:8px;background-color: #FEFEFE">
+                    <h3><i class="fa fa-cloud"></i> Ramnode</h3>
+
+                    <hr>
+                    <div style="margin-top: 8px">
+                        <div style="padding: 4px;">
+                            <h4>Label</h4>
+                        </div>
+                        <div style="padding: 8px;color: #666">
+                            <span>ramnode 256m openvz vps</span>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div>
+                        <div style="padding: 4px;">
+                            <h4>Referral Link  </h4>
+                        </div>
+                        <div style="padding: 8px;color: #666">
+                            <a href="https://clients.hostbd24.com/aff.php?aff=61&pid=25" target="_blank"><span>https://clients.hostbd24.com/aff.php?aff=61&pid=25</span></a>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div style="margin-top: 8px">
+                        <div style="padding: 4px;">
+                            <h4>Clicks </h4>
+                        </div>
+                        <div style="padding: 8px;color: #666">
+                            <div class="row">
+                                <div class='col-md-6'>
+                                    <span><small>Total</small> 2048 </span>
+                                </div>
+                                <div class='col-md-6'>
+                                    <span><small>Month</small> 1024 </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div style="margin-top: 8px">
+                        <div style="padding: 4px;">
+                            <h4>Top 3</h4>
+                        </div>
+                        <div style="padding: 8px;color: #666">
+                            <p><label class="label label-default">www.v2ex.com</label> 111</p>
+                            <p><label  class="label label-default">www.suduru.com</label>  22</p>
+                            <p><label  class="label label-default">www.getafffffffff.com</label> 6</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+{%- endblock %}

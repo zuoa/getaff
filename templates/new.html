@@ -1,0 +1,59 @@
+{# This simple template derives from ``base.html``. See ``base.html`` for
+   more information about template inheritance. #}
+{%- extends "base.html" %}
+
+{# Loads some of the macros included with Flask-Bootstrap. We are using the
+   utils module here to automatically render Flask's flashed messages in a
+   bootstrap friendly manner #}
+{% import "bootstrap/utils.html" as utils %}
+
+
+{# Inside the ``content`` is where you should place most of your own stuff.
+   This will keep scripts at the page end and a navbar you add on later
+   intact. #}
+{% block content %}
+    <div class="container">
+        {%- with messages = get_flashed_messages(with_categories=True) %}
+            {%- if messages %}
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ utils.flashed_messages(messages) }}
+                    </div>
+                </div>
+            {%- endif %}
+        {%- endwith %}
+        <div style="background-color: #FFF;padding:16px">
+            <h1>New Affiliate</h1>
+            <hr>
+            <div class="row" style="margin:8px">
+                <span class="col-md-2 text-right">Url</span>
+                <div class="input-group col-md-10">
+                  <span class="input-group-addon" id="basic-addon3">http://getaff.net/yu/</span>
+                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                </div>
+            </div>
+
+            <div class="row" style="margin:8px">
+                <span class="col-md-2 text-right">Label</span>
+                <div class="input-group col-md-10">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row" style="margin:8px">
+                <span class="col-md-2 text-right">Referral Link</span>
+                <div class="input-group col-md-10">
+                    <input type="text" class="form-control" />
+                </div>
+
+            </div>
+
+        </div>
+        <div style="background-color: #fafbfc;padding:16px;border-top:1px solid #F9F9F9" >
+            <button class="btn btn-lg btn-success">Create Affiliate</button>
+            <button class="btn btn-lg btn-default pull-right">Cancel</button>
+        </div>
+
+
+    </div>
+{%- endblock %}
